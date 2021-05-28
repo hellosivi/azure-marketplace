@@ -2,7 +2,7 @@
 :portal: https://portal.azure.com
 :github: https://github.com/elastic/azure-marketplace
 :current: 7.11
-:version: 7.11.1
+:version: 7.13.0
 :register: https://register.elastic.co
 :elasticguide: https://www.elastic.co/guide/en/elasticsearch
 :elasticdocs: {elasticguide}/reference/{current}
@@ -151,7 +151,7 @@ az group deployment create \
                vmDataDiskCount=1 dataNodesAreMasterEligible=Yes \
                adminUsername=russ adminPassword=Password1234 \
                securityBootstrapPassword=bootstrapPassword123 \
-               securityAdminPassword=adminPassword123 \              
+               securityAdminPassword=adminPassword123 \
                securityKibanaPassword=kibanaPassword123 \
                securityLogstashPassword=logstashPassword123 \
                securityBeatsPassword=beatsPassword123 \
@@ -285,8 +285,8 @@ where `{branch}` is the git branch or tag to target, for
 in a trailing `/`.
 
 `_artifactsLocationSasToken`::
-The sasToken required to access `_artifactsLocation`. The default value should be an empty 
-string `""`` for scenarios where the `_artifactsLocation` is not secured, such as the raw GitHub 
+The sasToken required to access `_artifactsLocation`. The default value should be an empty
+string `""`` for scenarios where the `_artifactsLocation` is not secured, such as the raw GitHub
 URI for the Azure Marketplace public repo.
 
 `location`::
@@ -743,10 +743,10 @@ The following settings apply to the internal load balancer
 
 `loadBalancerInternalSku`::
 Choose between `Basic` and `Standard` load balancer SKUs for the internal load balancer. An
-internal load balancer is **always** deployed, to balance internal traffic to the cluster. When 
-the `Standard` load balancer SKU is selected and `loadBalancerType` is `internal`, a Network 
-Security Group will also be deployed, and each VM in the backend pool will be assigned 
-a `Standard` public IP address, to allow outbound internet traffic from the VMs in the backend 
+internal load balancer is **always** deployed, to balance internal traffic to the cluster. When
+the `Standard` load balancer SKU is selected and `loadBalancerType` is `internal`, a Network
+Security Group will also be deployed, and each VM in the backend pool will be assigned
+a `Standard` public IP address, to allow outbound internet traffic from the VMs in the backend
 pool, which is required to install the Elastic Stack and dependencies.
 {loadbalancers}[Check the Azure documentation on Standard Load Balancers] to determine which
 options is best suited for your needs. Default is `Basic`.
@@ -893,8 +893,8 @@ $gatewayIp = "https://$($gatewayIpResource.DnsSettings.Fqdn):9200"
 [[azure-arm-template-kibana]]
 === Kibana
 
-Kibana can be deployed in addition to Elasticsearch, providing a visual window and UI into the 
-data within Elasticsearch. The version of Kibana deployed is always the same as the version of 
+Kibana can be deployed in addition to Elasticsearch, providing a visual window and UI into the
+data within Elasticsearch. The version of Kibana deployed is always the same as the version of
 Elasticsearch, ensuring compatibility between the products.
 
 The following parameters can be used to deploy Kibana, and control additional configuration
@@ -921,7 +921,7 @@ networking performance. Valid values are `Default`, `Yes`, `No`. The default is 
 enables accelerated networking for the VM SKUs known to support it.
 
 `kibanaAdditionalYaml`::
-Additional configuration that will be applied to the kibana.yml configuration file before start up. 
+Additional configuration that will be applied to the kibana.yml configuration file before start up.
 Each line must be separated by a `\n` newline character, for example
 +
 [source,text]
@@ -1066,7 +1066,7 @@ Keep this password somewhere safe; You never know when you may need it!
 --
 
 `securityKibanaPassword`::
-Security password for the `kibana` (`kibana_system` in 7.8.0+) built-in user account. 
+Security password for the `kibana` (`kibana_system` in 7.8.0+) built-in user account.
 This is the account that Kibana uses to communicate with Elasticsearch. Must be greater
 than six characters in length.
 
@@ -1081,13 +1081,13 @@ Beats can use to communicate with Elasticsearch. Must be greater
 than six characters in length.
 
 `securityApmPassword`::
-Security password for the `apm_system` built-in user account. This is the account that the 
+Security password for the `apm_system` built-in user account. This is the account that the
 APM server can use to communicate with Elasticsearch. Must be greater
 than six characters in length.
 
 `securityRemoteMonitoringPassword`::
-Security password for the `remote_monitoring_user` built-in user account. This is the account that 
-Metricbeat uses when collecting and storing monitoring information in Elasticsearch. 
+Security password for the `remote_monitoring_user` built-in user account. This is the account that
+Metricbeat uses when collecting and storing monitoring information in Elasticsearch.
 It has the `remote_monitoring_agent` and `remote_monitoring_collector` built-in roles.
 
 It is recommended after deployment to use the `elastic` superuser account to create
@@ -1542,8 +1542,8 @@ Elasticsearch, and Kibana and Logstash if also deployed, using the following par
 `xPackPlugins`::
 Select `Yes` to install a trial license of the Elastic Stack platinum features. A trial license
 provides access to {subscriptions}[platinum features] for 30 days. a value of `No`
-deploys a free perpetual basic license, providing access to the {subscriptions}[basic features]. 
-These versions use a distribution with Elastic Stack features included in the installation, 
+deploys a free perpetual basic license, providing access to the {subscriptions}[basic features].
+These versions use a distribution with Elastic Stack features included in the installation,
 and the license applied determines which features are activated.
 +
 The default is `Yes`.
