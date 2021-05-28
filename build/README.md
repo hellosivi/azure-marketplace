@@ -40,6 +40,10 @@ If you fork the repository, you can update the links to point to your own github
 npm run links -- --repo <username>/<repo> --branch <branch>
 ```
 
+```
+yarn links -- --repo hellosivi/azure-marketplace
+```
+
 where
 
 - `<username>` is your github username and `<repo>` is the name of the Azure Marketplace github repository. Defaults to the remote origin repository.
