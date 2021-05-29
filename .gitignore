@@ -49,6 +49,7 @@ parameters/test*.parameters.json
 
 #Secret
 secrets.password.parameters.json
+certs.sh
 
 #jetbrains tools
 .idea/
