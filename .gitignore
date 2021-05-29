@@ -47,6 +47,9 @@ temp/*.json
 parameters/test.parameters.json
 parameters/test*.parameters.json
 
+#Secret
+secrets.password.parameters.json
+
 #jetbrains tools
 .idea/
 
