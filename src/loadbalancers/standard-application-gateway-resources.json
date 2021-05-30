@@ -72,7 +72,7 @@
                 "id": "[resourceId(parameters('networkSettings').resourceGroup, 'Microsoft.Network/virtualNetworks/subnets', parameters('networkSettings').name, parameters('networkSettings').subnet.name)]"
               },
               "privateIPAddress": "[parameters('networkSettings').subnet.loadBalancerIp]",
-              "privateIPAllocationMethod": "Static"
+              "privateIPAllocationMethod": "Dynamic"
             }
           }
         ],
@@ -140,7 +140,7 @@
         "provider": "[toUpper(parameters('elasticTags').provider)]"
       },
       "properties": {
-        "publicIPAllocationMethod": "Static"
+        "publicIPAllocationMethod": "Dynamic"
       }
     },
     {
